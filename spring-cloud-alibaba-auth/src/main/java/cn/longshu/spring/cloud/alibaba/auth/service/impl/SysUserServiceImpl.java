@@ -4,8 +4,6 @@ package cn.longshu.spring.cloud.alibaba.auth.service.impl;
 import cn.longshu.spring.cloud.alibaba.auth.dao.SysUserDao;
 import cn.longshu.spring.cloud.alibaba.auth.entity.SysUser;
 import cn.longshu.spring.cloud.alibaba.auth.service.SysUserService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

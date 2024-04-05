@@ -2,8 +2,6 @@ package cn.longshu.spring.cloud.alibaba.auth.service;
 
 
 import cn.longshu.spring.cloud.alibaba.auth.entity.SysUser;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
 /**
  * 系统用户(SysUser)表服务接口
