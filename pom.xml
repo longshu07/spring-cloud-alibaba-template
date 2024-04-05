@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.longshu</groupId>
+    <artifactId>spring-cloud-alibaba-template</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-cloud-alibaba-template</name>
+    <description>spring-cloud-alibaba project for spring cloud</description>
+<!--表示该项目是一个Maven聚合项目，主要用于管理和聚合其下的子模块，而不是直接生成可执行的jar包或其他类型的构件。-->
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spring-cloud-alibaba-auth</module>
+    </modules>
+
+
+    <properties>
+        <!-- java版本 -->
+        <java.version>8</java.version>
+        <!-- SpringBoot版本 -->
+        <spring-boot.version>2.6.11</spring-boot.version>
+        <!-- Spring Cloud 版本 -->
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <!-- Spring Cloud Alibaba 版本 -->
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <!--   mysql-connect  版本   -->
+        <mysql.connect.version>8.0.30</mysql.connect.version>
+        <!--  mybatis版本      -->
+        <mybatis.version>2.3.1</mybatis.version>
+        <!-- druid(德鲁伊）数据库连接池版本-->
+        <druid.version>1.2.20</druid.version>
+
+        <!-- 日志版本-->
+        <log4j.version>2.4.2</log4j.version>
+
+        <!-- 连接池 版本-->
+        <commons-pool2.version>2.11.1</commons-pool2.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+<!--    dependencyManagement下添加多个不同组件的版本管理器，这样的话就可以释放掉parent这个配置项，这个配置项就可以留给自己公司创建的公共的模块。其次这种配置，子项目进行组件依赖的时候，需要显示声明-->
+<!--    因为是总项目 所以用dependencyManagement来管理  因为其他的子项目就不会来管理版本了了 可以直接引用-->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 核心依赖 -->
+            <!--spring boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Alibaba 版本管理器 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud 版本管理器 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- mysql依赖 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connect.version}</version>
+<!--                <scope>runtime</scope>-->
+            </dependency>
+            <!-- mybatis依赖 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--德鲁伊数据库连接池  https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- log4j https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!--    commons-pool2依赖    -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
+</project>
